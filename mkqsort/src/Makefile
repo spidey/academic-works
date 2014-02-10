@@ -16,19 +16,26 @@
 #You should have received a copy of the GNU General Public License
 #along with mkqsort. If not, see <http://www.gnu.org/licenses/>.
 
+PROJECT = mkqsort
+
 CC = gcc
 CFLAGS = -Wall
 OBJECTS = common.o file.o lineVector.o insertionSort.o threeWayRadixQuickSort.o main.o
+BUILD_PATH = ../build
 
 all: mkqsort
 
 mkqsort: ${OBJECTS}
-	${CC} ${CFLAGS} -o ../bin/$@ $+
-	echo Build complete! Binary generated at ../bin/mkqsort.
+	mkdir -p $(BUILD_PATH)
+	${CC} ${CFLAGS} -o $(BUILD_PATH)/$@ $(addprefix $(BUILD_PATH)/, $+)
+	@echo
+	@echo Build complete! Binary generated at $(BUILD_PATH)/$(PROJECT).
 
 %.o : %.c
-	${CC} ${CFLAGS} -c $+
+	${CC} ${CFLAGS} -c $+ -o $(BUILD_PATH)/$@
 
 clean:
-	rm -f ${OBJECTS} ../bin/mkqsort
-	echo Clean complete.
+	rm -f $(addprefix ${BUILD_PATH}/, ${OBJECTS} ${PROJECT})
+	rmdir $(BUILD_PATH)
+	@echo
+	@echo Clean complete.
