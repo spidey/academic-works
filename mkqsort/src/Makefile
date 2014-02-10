@@ -26,16 +26,20 @@ BUILD_PATH = ../build
 all: mkqsort
 
 mkqsort: ${OBJECTS}
-	mkdir -p $(BUILD_PATH)
 	${CC} ${CFLAGS} -o $(BUILD_PATH)/$@ $(addprefix $(BUILD_PATH)/, $+)
 	@echo
 	@echo Build complete! Binary generated at $(BUILD_PATH)/$(PROJECT).
 
-%.o : %.c
-	${CC} ${CFLAGS} -c $+ -o $(BUILD_PATH)/$@
+%.o: %.c create_dirs
+	${CC} ${CFLAGS} -c $< -o $(BUILD_PATH)/$@
+
+create_dirs:
+	mkdir -p $(BUILD_PATH)
 
 clean:
 	rm -f $(addprefix ${BUILD_PATH}/, ${OBJECTS} ${PROJECT})
-	rmdir $(BUILD_PATH)
+	rmdir --ignore-fail-on-non-empty $(BUILD_PATH)
 	@echo
 	@echo Clean complete.
+
+.PHONY: all clean create_dirs

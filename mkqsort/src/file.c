@@ -62,11 +62,10 @@ error_t fCountLines(FILE *_file, ulong *_lines){
 error_t fGetLine(FILE *_file, char **_line){
 	const uint initialLength = 81; //For 80 columns console windows
 	int current; //Current char, must be int to receive EOF
-	uint length_left = initialLength; //Initial buffer size
+	uint length_left = (initialLength - 1); //Initial buffer size
 	uint length = 0; //Line length
 	char *buffer = (char*)malloc(sizeof(char)*initialLength);
 	char *bufferIterator = buffer;
-	char *lineIterator;
 	error_t returnValue = E_OK;
 
 	//Error handling
@@ -76,14 +75,24 @@ error_t fGetLine(FILE *_file, char **_line){
 	if(feof(_file)){
 		return E_END_REACHED;
 	}
+	if(!buffer){
+		return E_NO_MEMORY;
+	}
 
 	while(1){
 		if(!length_left){
 			//Realloc string to a bigger memory block
-			buffer = (char*)realloc(buffer, length*2*sizeof(char));
-			//Restore bufferIterator relative position
-			bufferIterator = buffer + length;
-			length_left = length;
+			char *newBuffer = (char*)realloc(buffer, length*2*sizeof(char) + 1);
+			if (newBuffer != NULL){
+				buffer = newBuffer;
+				//Restore bufferIterator relative position
+				bufferIterator = buffer + length;
+				length_left = length;
+			}else{
+				returnValue = E_NO_MEMORY;
+				*bufferIterator = 0;
+				break;
+			}
 		}
 		length++;
 		current = fgetc(_file);
@@ -102,15 +111,7 @@ error_t fGetLine(FILE *_file, char **_line){
 		}
 	}
 
-	//Allocate _line and define lineIterator
-	*_line = (char*)malloc(sizeof(char)*length);
-	lineIterator = *_line;
-	//Reset bufferIterator for copy operation
-	bufferIterator = buffer;
-	while((*lineIterator++ = *bufferIterator++));
-
-	//Free buffer
-	free(buffer);
+	*_line = buffer;
 
 	return returnValue;
 }

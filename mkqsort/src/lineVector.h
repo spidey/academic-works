@@ -33,8 +33,8 @@ typedef struct{
 //Read a _file and create a _lineVector with the file _lines
 error_t CreateLineVector(FILE *_file, lineVector **_lineVector);
 //Destroy a _lineVector
-error_t DestroyLineVector(lineVector **_lineVector);
-//Print a _lineVector to _file with _lineBreakBefore style
-error_t PrintLineVector(lineVector *_lineVector, FILE *_file, bool _lineBreakBefore);
+void DestroyLineVector(lineVector **_lineVector);
+//Print a _lineVector to stdout
+void PrintLineVector(lineVector *_lineVector);
 
 #endif

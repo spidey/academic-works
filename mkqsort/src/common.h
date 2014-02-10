@@ -25,6 +25,7 @@ along with mkqsort. If not, see <http://www.gnu.org/licenses/>. */
 #define E_LINE_TOO_LONG 2
 #define E_TOO_MANY_LINES 3
 #define E_END_REACHED 4
+#define E_NO_MEMORY 5
 //main.c errors
 #define E_INVALID_ARGUMENTS 101
 #define E_NO_INPUT_FILE 102

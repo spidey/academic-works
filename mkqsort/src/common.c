@@ -44,15 +44,20 @@ void PrintError(error_t _error){
 			fprintf(stderr, "File not found. Nothing done.\n");
 			break;
 		case E_OK:
-		default:
 			fprintf(stderr, "All OK.\n");
+			break;
+		case E_NO_MEMORY:
+			fprintf(stderr, "No memory to continue processing file.\n");
+			break;
+		default:
+			fprintf(stderr, "Unkown error ocurred.\n");
 			break;
 	}
 	return;
 }
 //Print _text to stderr
 void Debug(const char *_text){
-	fprintf(stderr, _text);
-	fprintf(stderr, "\n");
+	fprintf(stderr, "%s\n", _text);
 	return;
 }
+

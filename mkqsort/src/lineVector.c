@@ -28,7 +28,7 @@ error_t CreateLineVector(FILE *_file, lineVector **_lineVector){
 	lineVectorLineIndex_t size;
 	lineVectorLineIndex_t currentLine = 0;
 	error_t error = E_OK; //0
-	char **lines;
+	char **lines = NULL;
 
 	//Error handling
 	if(!_file){
@@ -45,20 +45,34 @@ error_t CreateLineVector(FILE *_file, lineVector **_lineVector){
 
 	//Initialize _lineVector
 	*_lineVector = (lineVector*)malloc(sizeof(lineVector));
-	(*_lineVector)->Size = size;
-	(*_lineVector)->Lines = (char**)malloc(size*sizeof(char*));
-	lines = (*_lineVector)->Lines; //Just to save some dereferencing
+	if (*_lineVector){
+		(*_lineVector)->Size = size;
+		(*_lineVector)->Lines = (char**)malloc(size*sizeof(char*));
+		if ((*_lineVector)->Lines){
+			lines = (*_lineVector)->Lines; //Just to save some dereferencing
+		}
+	}
 
-	//Fill _lineVector->Lines
-	while(!error && currentLine < size && currentLine < ULONG_MAX){
-		error = fGetLine(_file, &lines[currentLine++]);
+	if (lines){
+		//Fill _lineVector->Lines
+		while(!error && currentLine < size && currentLine < ULONG_MAX){
+			error = fGetLine(_file, &lines[currentLine++]);
+		}
+
+		if (error){
+			DestroyLineVector(_lineVector);
+		}
+	}else{
+		if (*_lineVector){
+			free(*_lineVector);
+		}
 	}
 
 	//If everything goes OK, return E_OK, default value.
 	return error;
 }
 //Destroy a _lineVector
-error_t DestroyLineVector(lineVector **_lineVector){
+void DestroyLineVector(lineVector **_lineVector){
 	lineVectorLineIndex_t size = (*_lineVector)->Size;
 	lineVectorLineIndex_t current = 0;
 	char **lines = (*_lineVector)->Lines; //Saving some pointer operations
@@ -73,26 +87,25 @@ error_t DestroyLineVector(lineVector **_lineVector){
 	free(*_lineVector);
 	*_lineVector = NULL;
 
-	return E_OK;
+	return;
 }
-//Print a _lineVector to _file with _lineBreakBefore style
-error_t PrintLineVector(lineVector *_lineVector, FILE *_file, bool _lineBreakBefore){
+//Print a _lineVector to stdout
+void PrintLineVector(lineVector *_lineVector){
 	lineVectorLineIndex_t current;
-	lineVectorLineIndex_t size = _lineVector->Size;
-	char **lines = _lineVector->Lines;
-	char *lineBreakBeforeFormat = "\n%s";
-	char *lineBreakAfterFormat = "%s\n";
-	char *printfFormat;
+	lineVectorLineIndex_t size;
+	char **lines;
+	const char *printfFormat = "%s\n";
 
-	if(_lineBreakBefore){
-		printfFormat = lineBreakBeforeFormat;
+	if (_lineVector){
+		size = _lineVector->Size;
+		lines = _lineVector->Lines;
+
+		for(current = 0; current < size; current++){
+			printf(printfFormat, lines[current]);
+		}
 	}else{
-		printfFormat = lineBreakAfterFormat;
+		fprintf(stderr, printfFormat, "Error: Invalid lineVector.");
 	}
 
-	for(current = 0; current < size; current++){
-		fprintf(_file, printfFormat, lines[current]);
-	}
-
-	return E_OK;
+	return;
 }

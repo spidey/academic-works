@@ -76,12 +76,10 @@ int main(int argc, char **argv){
 
 	if(verbose){
 		printf("Total clicks\t%d\n", (int)time);
-		printf("Total secs\t%4.3lf\n\n\n", (double)time/CLOCKS_PER_SEC);
-		printf("Resultado da ordenacao");
-		PrintLineVector(LineVector, stdout, TRUE); //Print using NL-before style
-	}else{
-		PrintLineVector(LineVector, stdout, FALSE); //Print using NL-after style
+		printf("Total secs\t%4.3lf\n\n", (double)time/CLOCKS_PER_SEC);
+		printf("Sorted result:\n");
 	}
+	PrintLineVector(LineVector);
 
 	//Destroy LineVector
 	DestroyLineVector(&LineVector);
