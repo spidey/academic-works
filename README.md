@@ -1,7 +1,7 @@
 academic-works
 ==============
 
-Repository of academic projects and exercises, all done during my Computer Engineering course at UFES - Universidade Federal do Espírito Santo.
+Repository of academic projects and exercises, some done during my Computer Engineering course at UFES - Universidade Federal do Espírito Santo, others during my Curso Superior de Tecnologia em Sistemas de Computação at UFF - Universidade Federal Fluminense, through CEDERJ.
 
 Current projects
 ----------------
