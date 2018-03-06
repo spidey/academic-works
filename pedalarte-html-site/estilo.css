@@ -1,0 +1,239 @@
+body {
+	background-color: #eeee33;
+	color: #dd0000;
+	font-family: verdana, liberation;
+	font-size: 16px;
+}
+
+#site {
+	width: 700px;
+}
+
+a {
+	color: #dd0000;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #cc0000;
+}
+
+ul {
+	list-style-image: url("imagens/Engrenagem.png");
+}
+
+nav ul {
+	line-height: 230%;
+	margin-top: 40px;
+}
+
+.ender {
+	float: right;
+	text-align: right;
+	line-height: 140%;
+	font-size: 15px;
+}
+
+.imgLogo {
+	float:left;
+	border-bottom: solid 3px;
+	margin-bottom: 6px;
+	padding-bottom: 15px;
+}
+
+.apres {
+	text-align: center;
+	font-size: 18px;
+}
+
+header {
+	display: block;
+	margin-bottom: 1px;
+}
+
+nav {
+	display: block;
+	width: 20%;
+	float: left;
+	clear: left;
+}
+
+section {
+	display: block;
+	width: 77%;
+	float: right;
+}
+
+h3 {
+	color: #000066;
+}
+
+.listaPecas {
+	color: #000066;
+	list-style-type: upper-roman;
+	line-height: 200%;
+}
+
+.preco {
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.tabBike {
+	border-collapse: collapse;
+	margin-top: 6px;
+	background-color: #ffcc44;
+	color: #000066;
+	font-family: arial, ubuntu;
+}
+
+.tabBike td, .tabBike th {
+	border: 3px solid #226699;
+	padding: 6px 12px 6px 12px;
+}
+
+.tabBike .titulo {
+	color: #ffff00;
+	background-color: #228855;
+	font-size: 24px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.tabBike .linTH {
+	color: #ffffff;
+	background-color: #22aa55;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.tabBike .colTH {
+	color: #ffffff;
+	background-color: #2299dd;
+	text-align: left;
+}
+
+.tabBike .preco {
+	color: #ee0000;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.tabBike .imgBike {
+	width: 70px;
+	height: 70px;
+}
+
+fieldset {
+	margin: 20px 10px 0px 10px;
+}
+
+.fsEsq {
+	float: left;
+	display: inline;
+	margin: 0px;
+}
+
+.fsDir {
+	float: right;
+	display: inline;
+	margin: 0px;
+}
+
+.botoes {
+	text-align: right;
+	margin: 20px 10px 0px 10px;
+}
+
+.divLinha {
+	width: 480px;
+	margin-bottom: 6px;
+}
+
+.colPri {
+	float: left;
+	display: block;
+	width: 90px;
+}
+
+.elemDir {
+	float: right;
+	display: block;
+}
+
+.inpGrande {
+	width: 370px;
+}
+
+.inpMedio {
+	width: 120px;
+}
+
+.numDD {
+	width: 30px;
+}
+
+.numQD {
+	width: 50px;
+}
+
+.fsEsqCompras {
+	float: left;
+	display: inline;
+	margin: 10px 0 0 0;
+}
+
+.fsDirCompras {
+	float: right;
+	display: inline;
+	margin: 10px 0 0 0;
+}
+
+div.linhaCompras {
+	width: 500px;
+	margin-bottom: 6px;
+	clear: left;
+}
+
+.linhaForm {
+	margin-bottom: 6px;
+	clear: both;
+}
+
+label.colPriCompras {
+	float: left;
+	display: block;
+	width: 86px;
+}
+
+input.inpEmail {
+	width: 200px;
+}
+
+.cadastre {
+	font-variant: italic;
+	font-weight: bold;
+	float: left;
+	clear: left;
+	margin: 5px 0 0 0;
+}
+
+.notas {
+	float: right;
+	width: 150px;
+	height: 200px;
+	margin-bottom: 10px;
+}
+
+.bandeira {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.cartao {
+	width: 200px;
+}
+
+.inpValor {
+	width: 80px;
+}

@@ -1,0 +1,126 @@
+<html>
+	<head>
+		<title>Pedalarte</title>
+		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+	</head>
+	<body>
+		<div id="site">
+			<header>
+				<img src="imagens/PedalarTopo.png" alt="Pedalarte" class="imgLogo"/>
+				<div class="ender">
+					<address>
+						Av. Tour de France, 1903<br/>
+						Tel: (21) 8765-4321<br/>
+						<a href="mailto:contato@pedalarte.com.br">contato@pedalarte.com.br</a>
+					</address>
+				</div>
+			</header>
+			<nav>
+				<ul>
+					<li>
+						<a target="_blank" href="Pedalarte.html">Apresenta&ccedil;&atilde;o</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Pecas.html">Pe&ccedil;as</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Bicicletas.html">Bicicletas</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Cadastro.html">Cadastro</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Compras.html">Compras</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<h3>Compras</h3>
+				<form action="Compras.html" method="get">
+				<fieldset>
+					<legend>Identifica&ccedil;&atilde;o</legend>
+					<div class="linhaCompras">
+						<div class="fsEsqCompras">
+							<label for="email" class="colPriCompras">E-mail:</label>
+							<input autofocus type="email" id="email" name="email" class="inpEmail"/>
+						</div>
+						<div class="fsDirCompras">
+							<label for="senha" class="colPriCompras">Senha:</label>
+							<input type="password" name="senha" id="senha" class="inpMedio"/>
+						</div>
+						<p class="cadastre">Se voc&ecirc; ainda n&atilde;o tem cadastro <a href="Cadastro.html">clique aqui</a>!</span>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Lista de Compras e Pagamento</legend>
+					<div class="fsEsqCompras">
+						<div class="linhaForm">
+							<label for="produtos" class="colPriCompras">Produtos:</label>
+						</div>
+						<div class="linhaForm">
+							<select name="produtos" id="produtos">
+								<option value="">-----</option>
+								<optgroup label="Guidom">
+									<option value="G1">Alum&iacute;nio CB Refor&ccedil;ado Polido</option>
+									<option value="G2">Alum&iacute;nio Speed 31,8 X 420MM</option>
+								</optgroup>
+								<optgroup label="Selim">
+									<option value="S1">RAD 7 Comfort</option>
+									<option value="S2">SERFAS E-GEL DDMD-200</option>
+								</optgroup>
+								<optgroup label="Pedal">
+									<option value="P1">Ingl&ecirc;s Alum&iacute;nio</option>
+								</optgroup>
+								<optgroup label="Bicicleta">
+									<option value="B1">MTB A16 VOLT 1.6 PT/AM</option>
+									<option value="B2">CALOI A16 CECI BRANCA</option>
+									<option value="B3">POTY A26 Branca/Vermelho</option>
+									<option value="B4">CALOI A26 Sport T19 V21 Marchas</option>
+								</optgroup>
+							</select>
+							<input type="button" value="Comprar"/>
+						</div>
+						<fieldset class="fsEsqCompras">
+							<legend>Dados do Cart&atilde;o</legend>
+							<fieldset class="fsEsqCompras bandeira">
+								<legend>Bandeira:</legend>
+								<input type="radio" name="bandeira" value="visa" id="visa"/>
+								<label for="visa">Visa</label>
+								<input type="radio" name="bandeira" value="master" id="master"/>
+								<label for="master">Master</label>
+								<input type="radio" name="bandeira" value="amex" id="amex"/>
+								<label for="amex">Amex</label>
+							</fieldset>
+							<div class="linhaForm">
+								<label for="mes" class="colPriCompras">Validade:</label>
+								<input type="number" min="1" max="12" name="mes" id="mes" class="numDD" />
+								/
+								<input type="number" min="2018" max="2026" name="ano" class="numQD" />
+							</div>
+							<div class="linhaForm">
+								<label for="numero" class="colPriCompras">N&uacute;mero:</label>
+								<input type="text" class="cartao" id="numero" name="numero"/>
+							</div>
+						</fieldset>
+					</div>
+					<div class="fsDirCompras">
+						<textarea name="notas" class="notas"></textarea>
+						<div class="linhaForm">
+							<label for="valor" class="colPriCompras">Valor: R$</label>
+							<input type="text" readonly class="inpValor" name="valor" id="valor"/>
+						</div>
+					</div>
+				</fieldset>
+				<div class="botoes">
+					<input type="submit" value="Enviar"/>
+					<input type="reset" value="Limpar"/>
+				</div>
+				</form>
+			</section>
+		</div>
+	</body>
+</html>

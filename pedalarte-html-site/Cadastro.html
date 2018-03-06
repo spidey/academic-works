@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Pedalarte</title>
+		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+	</head>
+	<body>
+		<div id="site">
+			<header>
+				<img src="imagens/PedalarTopo.png" alt="Pedalarte" class="imgLogo"/>
+				<div class="ender">
+					<address>
+						Av. Tour de France, 1903<br/>
+						Tel: (21) 8765-4321<br/>
+						<a href="mailto:contato@pedalarte.com.br">contato@pedalarte.com.br</a>
+					</address>
+				</div>
+			</header>
+			<nav>
+				<ul>
+					<li>
+						<a target="_blank" href="Pedalarte.html">Apresenta&ccedil;&atilde;o</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Pecas.html">Pe&ccedil;as</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Bicicletas.html">Bicicletas</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Cadastro.html">Cadastro</a>
+					</li>
+					<br/>
+					<li>
+						<a target="_blank" href="Compras.html">Compras</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<h3>Cadastro</h3>
+				<form action="Cadastro.html" method="get" />
+				<fieldset>
+					<legend>Identifica&ccedil;&atilde;o</legend>
+					<div class="divLinha">
+						<label for="email" class="colPri">E-mail:</label>
+						<input autofocus type="email" id="email" name="email" class="inpGrande"/>
+					</div>
+					<div class="divLinha">
+						<div class="fsEsq">
+							<label class="colPri" for="senha">Senha:</label>
+							<input type="password" name="senha" id="senha" class="inpMedio"/>
+						</div>
+						<div class="fsDir">
+							<label class="colPri" for="confirme">Confirme:</label>
+							<input type="password" name="confirme" id="confirme" class="inpMedio"/>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Dados Pessoais</legend>
+					<div class="divLinha">
+						<label for="nome" class="colPri">Nome:</label>
+						<input type="text" name="nome" id="nome" class="inpGrande"/>
+					</div>
+					<div class="divLinha">
+						<label for="endereco" class="colPri">Endere&ccedil;o:</label>
+						<textarea name="endereco" id="endereco" class="inpGrande"></textarea>
+					</div>
+					<div class="divLinha">
+						<div class="fsEsq">
+							<label class="colPri" for="telefone">Telefone:</label>
+							<input type="tel" name="telefone" id="telefone" class="inpMedio"/>
+						</div>
+						<div class="fsDir">
+							<label class="colPri" for="celular">Celular:</label>
+							<input type="tel" name="celular" id="celular" class="inpMedio"/>
+						</div>
+					</div>
+					<fieldset class="fsEsq">
+						<legend>Nascimento:</legend>
+						<input type="number" name="dia" id="dia" min="1" max="31" class="numDD"/>
+						/
+						<input type="number" name="mes" min="1" max="12" class="numDD"/>
+						/
+						<input type="number" name="ano" min="1920" max="2000" class="numQD"/>
+					</fieldset>
+					<fieldset class="fsDir">
+						<legend>Sexo:</legend>
+						<input type="radio" checked name="sexo" value="masculino" id="masculino"/>
+						<label for="masculino">Masculino
+						<input type="radio" name="sexo" id="feminino" value="feminino"/>
+						<label for="feminino">Feminino
+					</fieldset>
+				</fieldset>
+				<div class="botoes">
+					<input type="submit" value="Enviar"/>
+					<input type="reset" value="Limpar"/>
+				</div>
+				</form>
+			</section>
+		</div>
+	</body>
+</html>
