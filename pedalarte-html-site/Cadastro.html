@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<title>Pedalarte</title>
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+		<script type="text/javascript" src="actions.js"></script>
 	</head>
 	<body>
 		<div id="site">
@@ -72,11 +73,11 @@
 					<div class="divLinha">
 						<div class="fsEsq">
 							<label class="colPri" for="telefone">Telefone:</label>
-							<input type="tel" name="telefone" id="telefone" class="inpMedio"/>
+							<input type="tel" name="telefone" id="telefone" class="inpMedio" onchange="validatePhone(this, 'Telefone Fixo', 8);"/>
 						</div>
 						<div class="fsDir">
 							<label class="colPri" for="celular">Celular:</label>
-							<input type="tel" name="celular" id="celular" class="inpMedio"/>
+							<input type="tel" name="celular" id="celular" class="inpMedio" onchange="validatePhone(this, 'Telefone Celular', 9);"/>
 						</div>
 					</div>
 					<fieldset class="fsEsq">

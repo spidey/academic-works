@@ -22,3 +22,19 @@ function showBike(index)
 	document.getElementById("bikeImage").src = bikes[index][1];
 	document.getElementById("bikePrice").innerHTML = bikes[index][2];
 }
+
+function validatePhone(obj, field, size)
+{
+	if (obj.value.length != size)
+	{
+		alert(field + " tem de ter " + size + " dígitos!");
+	}
+	else
+	{
+		var invalidChars = obj.value.match(/[^0-9]/);
+		if (invalidChars)
+		{
+			alert(field + " só pode ter dígitos, caracter " + invalidChars[0][0] + " inválido!");
+		}
+	}
+}
