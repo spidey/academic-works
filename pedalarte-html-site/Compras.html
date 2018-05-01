@@ -3,8 +3,9 @@
 		<meta charset="UTF-8">
 		<title>Pedalarte</title>
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+		<script type="text/javascript" src="actions.js"></script>
 	</head>
-	<body>
+	<body onload="fillProductDropdown();">
 		<div id="site">
 			<header>
 				<img src="imagens/PedalarTopo.png" alt="Pedalarte" class="imgLogo"/>
@@ -65,25 +66,8 @@
 						<div class="linhaForm">
 							<select name="produtos" id="produtos">
 								<option value="">-----</option>
-								<optgroup label="Guidom">
-									<option value="G1">Alum&iacute;nio CB Refor&ccedil;ado Polido</option>
-									<option value="G2">Alum&iacute;nio Speed 31,8 X 420MM</option>
-								</optgroup>
-								<optgroup label="Selim">
-									<option value="S1">RAD 7 Comfort</option>
-									<option value="S2">SERFAS E-GEL DDMD-200</option>
-								</optgroup>
-								<optgroup label="Pedal">
-									<option value="P1">Ingl&ecirc;s Alum&iacute;nio</option>
-								</optgroup>
-								<optgroup label="Bicicleta">
-									<option value="B1">MTB A16 VOLT 1.6 PT/AM</option>
-									<option value="B2">CALOI A16 CECI BRANCA</option>
-									<option value="B3">POTY A26 Branca/Vermelho</option>
-									<option value="B4">CALOI A26 Sport T19 V21 Marchas</option>
-								</optgroup>
 							</select>
-							<input type="button" value="Comprar"/>
+							<input type="button" value="Comprar" onclick="buyProduct();"/>
 						</div>
 						<fieldset class="fsEsqCompras">
 							<legend>Dados do Cart&atilde;o</legend>
@@ -109,8 +93,8 @@
 						</fieldset>
 					</div>
 					<div class="fsDirCompras">
-						<textarea name="notas" class="notas"></textarea>
-						<div class="linhaForm">
+						<textarea name="notas" id="notas" class="notas"></textarea>
+						<div class="linhaForm elemDir">
 							<label for="valor" class="colPriCompras">Valor: R$</label>
 							<input type="text" readonly class="inpValor" name="valor" id="valor"/>
 						</div>
@@ -118,7 +102,7 @@
 				</fieldset>
 				<div class="botoes">
 					<input type="submit" value="Enviar"/>
-					<input type="reset" value="Limpar"/>
+					<input type="reset" value="Limpar" onclick="clearForm();"/>
 				</div>
 				</form>
 			</section>
