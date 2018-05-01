@@ -222,11 +222,17 @@ input.inpEmail {
 	margin: 5px 0 0 0;
 }
 
+select#produtos {
+	width: 160px;
+}
+
 .notas {
 	float: right;
-	width: 150px;
+	width: 200px;
 	height: 200px;
 	margin-bottom: 10px;
+	white-space: pre;
+	overflow: scroll;
 }
 
 .bandeira {
@@ -235,7 +241,7 @@ input.inpEmail {
 }
 
 .cartao {
-	width: 200px;
+	width: 160px;
 }
 
 .inpValor {
