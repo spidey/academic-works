@@ -2,6 +2,7 @@
 	<head>
 		<title>Pedalarte</title>
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+		<script type="text/javascript" src="actions.js"></script>
 	</head>
 	<body>
 		<div id="site">
@@ -46,31 +47,27 @@
 					<tr>
 						<th class="linTH">Tipo</th>
 						<th class="linTH">Modelo</th>
-						<th class="linTH">Foto</th>
-						<th class="linTH">Pre&ccedil;o</th>
+						<th class="linTH" id="bikeName"></th>
 					</tr>
 					<tr>
 						<th class="colTH" rowspan="2">ARO 16</th>
-						<td>MTB VOLT 1.6 PT/AM</td>
-						<td><img class="imgBike" src="imagens/Bike_MTB_ARO16.jpg"/></td>
-						<td class="preco">R$ 490,00</td>
+						<td><a href="javascript:showBike(0);">MTB VOLT 1.6 PT/AM</a></td>
+						<td rowspan="4">
+							<img id="bikeImage" src="imagens/Vazio.jpg"/>
+							<br/><span class="preco" id="bikePrice">&nbsp;</span>
+						</td>
 					</tr>
 					<tr>
-						<td>CALOI CECI BRANCA</td>
-						<td><img class="imgBike" src="imagens/Bike_Caloi_ARO16.jpg"/></td>
-						<td class="preco">R$ 469,00</td>
+						<td><a href="javascript:showBike(1);">CALOI CECI BRANCA</a></td>
 					</tr>
 					<tr>
 						<th class="colTH" rowspan="2">ARO 26</th>
-						<td>POTY Branca/Vermelho</td>
-						<td><img class="imgBike" src="imagens/Bike_Poty_ARO26.jpg"/></td>
-						<td class="preco">R$ 489,00</td>
+						<td><a href="javascript:showBike(2);">POTY Branca/Vermelho</a></td>
 					</tr>
 					<tr>
-						<td>CALOI Sport T19 V21 Marchas</td>
-						<td><img class="imgBike" src="imagens/Bike_Caloi_ARO26.jpg"/></td>
-						<td class="preco">R$ 880,00</td>
+						<td><a href="javascript:showBike(3);">CALOI Sport T19 V21</a></td>
 					</tr>
+				</table>
 			</section>
 		</div>
 	</body>

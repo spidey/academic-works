@@ -113,6 +113,10 @@ h3 {
 	text-align: left;
 }
 
+.tabBike td {
+	text-align: center;
+}
+
 .tabBike .preco {
 	color: #ee0000;
 	font-weight: bold;
