@@ -237,3 +237,12 @@ input.inpEmail {
 .inpValor {
 	width: 80px;
 }
+
+.popup {
+	text-align: center;
+}
+
+.popup ul, .popup p {
+	text-align: left;
+}
+
