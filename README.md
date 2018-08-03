@@ -11,3 +11,6 @@ Current projects
 
 - [**mkqsort**](https://github.com/spidey/academic-works/tree/master/mkqsort)  
 	A three-way radix quicksort implementation for sortings lines in a text file, written in C.
+
+- [**pedalarte**](http://spidey.github.io/academic-works/pedalarte-html-site/Pedalarte.html)  
+	Simple website built as a learning exercise of HTML, CSS and Javascript.
