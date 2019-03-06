@@ -43,10 +43,14 @@ class BalancedBSTSet(BSTSet):
              # node by substituting its value with its successor's value and
              # deleting the successor.  In this iterator, current is referenced
              # by __pending and its successor is referenced by __current.
-            s = self.__BSTIterator__current
-            if s != None:
-                self.__BSTIterator__tree.__updateParents(s, -1)
+            current = self.__BSTIterator__pending
 
+            nodeToUpdateParents = current
+            if current.left != None and current.right != None:
+                successor = self.__BSTIterator__current
+                nodeToUpdateParents = successor
+
+            self.__BSTIterator__tree.__updateParents(nodeToUpdateParents, -1)
             BSTSet.BSTIterator.remove(self)
             
     ##
