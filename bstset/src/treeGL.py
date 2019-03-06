@@ -623,7 +623,7 @@ def init ( ):
     glutInitDisplayMode ( GLUT_DOUBLE | GLUT_RGBA )
     glutInitWindowPosition ( 0, 0 )
     glutInitWindowSize ( *mapwv.viewport )
-    glutCreateWindow ( "" )
+    glutCreateWindow ( b"" )
     glPointSize ( 7 )
     glEnable(GL_POINT_SMOOTH)
     glClearColor (*BACKGROUND)
