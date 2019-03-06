@@ -4,7 +4,7 @@
 #
 ## @package BalancedBSTSet
 #
-#  alpha-Balanced Binary Tree.
+#  α-Balanced Binary Search Tree based Set
 #
 #  @author Claudio Roberto França Pereira
 #  @date 06/03/2019
@@ -12,6 +12,10 @@
 
 from BSTSet import BSTSet, generateRandomArray
 
+##
+ # @author Claudio Roberto França Pereira
+ # @since 06/03/2019
+ #
 class BalancedBSTSet(BSTSet):
     ##
      # Node type for BalancedBSTSet
@@ -20,7 +24,7 @@ class BalancedBSTSet(BSTSet):
         ##
          # Constructor for BalancedBSTSet.Node.
          #
-         # @param key data object.
+         # @param data object to be stored.
          # @param parent parent node, None for root node.
          #
         def __init__(self, data, parent):
@@ -37,6 +41,13 @@ class BalancedBSTSet(BSTSet):
      # sure the node subtree size is updated on the remove call.
      #
     class BalancedBSTIterator(BSTSet.BSTIterator):
+        ##
+         # The API is the same as BSTSet.BSTIterator's. Remove the node returned
+         # by the last call to next().
+         #
+         # @raise IndexError if next() hasn't been called before, or if the
+         #                   current node has already been removed.
+         #
         def remove(self):
             ##
              # Updates the successor node's parents if we remove the current
