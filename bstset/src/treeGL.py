@@ -463,7 +463,7 @@ def drawTree ( rnode, center, ht ):
             pts[0].x += radius + space*0.5
 
     circ ( center, radius )
-    text ( pts[0], str(rnode.data) )
+    text ( pts[0], "%r" % rnode )
  
     if ( rnode.left != NullNode ):
          d = WorldPoint (HDSP(ht-1),vdsp)
@@ -713,6 +713,7 @@ def keyboardHandler ( key, x, y ):
     elif key == b'?': printData()
     elif key == b'd': deleteData()
     elif key == b'i': insertData()
+    elif key == b'p': printTree()
     elif key == b'c':
          Stree = NullNode
          type,nodes = readType()
