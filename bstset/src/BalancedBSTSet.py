@@ -248,5 +248,19 @@ class TestBalancedBSTSet(unittest.TestCase):
         elems.sort()
         self.assertEqual(added, elems)
 
+    def test_height(self):
+        tree = BalancedBSTSet(False)
+        self.assertEqual(tree.height(), -1)
+        tree.add(5)
+        self.assertEqual(tree.height(), 0)
+        tree.add(3)
+        self.assertEqual(tree.height(), 1)
+        tree.add(7)
+        self.assertEqual(tree.height(), 1)
+        tree.add(2)
+        self.assertEqual(tree.height(), 2)
+        tree.add(1)
+        self.assertEqual(tree.height(), 3)
+
 if __name__ == "__main__":
     unittest.main()
