@@ -248,6 +248,35 @@ class TestBalancedBSTSet(unittest.TestCase):
         elems.sort()
         self.assertEqual(added, elems)
 
+    def test_remove(self):
+        tree = BalancedBSTSet(False)
+        elements = [50, 34, 72, 12, 6]
+
+        for x in elements:
+            tree.add(x)
+        self.assertEqual(len(tree), len(elements))
+        originalHeight = tree.height()
+        tree.remove(6)
+        self.assertEqual(tree.height(), originalHeight - 1)
+        self.assertEqual(len(tree), len(elements) - 1)
+        tree.remove(34)
+        self.assertEqual(tree.height(), originalHeight - 2)
+        self.assertEqual(len(tree), len(elements) - 2)
+
+        for x in elements:
+            tree.remove(x)
+        self.assertEqual(len(tree), 0)
+        for x in elements:
+            tree.add(x)
+        elements.sort()
+        for _ in range(len(elements) - 1):
+            x = elements[random.randrange(len(elements))]
+            elements.remove(x)
+            tree.remove(x)
+            self.assertEqual(len(tree), len(elements))
+            inOrder = [x.data for x in tree._BSTSet__inOrder(tree.root(), None)]
+            self.assertEqual(inOrder, elements)
+
     def test_height(self):
         tree = BalancedBSTSet(False)
         self.assertEqual(tree.height(), -1)
