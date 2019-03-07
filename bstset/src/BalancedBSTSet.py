@@ -181,3 +181,36 @@ class BalancedBSTSet(BSTSet):
             node.right = self.__recreateTree(nodeArray, middle + 1, end, node)
 
         return node
+
+import unittest
+
+class TestBalancedBSTSet(unittest.TestCase):
+    def test_creation(self):
+        self.assertIsNotNone(BalancedBSTSet())
+        self.assertIsNotNone(BalancedBSTSet(True))
+        self.assertIsNotNone(BalancedBSTSet(False))
+        self.assertIsNotNone(BalancedBSTSet(True, 5, 7))
+        self.assertIsNotNone(BalancedBSTSet(True, 1, 2))
+        with self.assertRaises(TypeError):
+            BalancedBSTSet("abc")
+        with self.assertRaises(TypeError):
+            BalancedBSTSet(10)
+        with self.assertRaises(TypeError):
+            BalancedBSTSet(top = "foo")
+        with self.assertRaises(TypeError):
+            BalancedBSTSet(bottom = "bar")
+        with self.assertRaises(TypeError):
+            BalancedBSTSet(True, 1, 2.3)
+        with self.assertRaises(TypeError):
+            BalancedBSTSet(False, 5.0, 7)
+        with self.assertRaises(TypeError):
+            BalancedBSTSet(False, "2", "3")
+        with self.assertRaises(ZeroDivisionError):
+            BalancedBSTSet(bottom = 0)
+        with self.assertRaises(ValueError):
+            BalancedBSTSet(False, 2, 7)
+        with self.assertRaises(ValueError):
+            BalancedBSTSet(False, 15, 3)
+
+if __name__ == "__main__":
+    unittest.main()
