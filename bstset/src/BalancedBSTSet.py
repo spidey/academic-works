@@ -50,8 +50,11 @@ class BalancedBSTSet(BSTSet):
                 successor = self.__BSTIterator__current
                 nodeToUpdateParents = successor
 
-            self.__BSTIterator__tree.__updateParents(nodeToUpdateParents, -1)
+            tree = self.__BSTIterator__tree
+            nodeToRebalance = tree.__updateParents(nodeToUpdateParents, -1)
             BSTSet.BSTIterator.remove(self)
+            if nodeToRebalance != None:
+                tree.rebalance(nodeToRebalance)
             
     ##
      # Constructor for an α-Balanced Binary Search Tree Set
@@ -85,8 +88,7 @@ class BalancedBSTSet(BSTSet):
                 parentToRebalance = parentNode
             parentNode = parentNode.parent
 
-        if parentToRebalance != None:
-            self.rebalance(parentToRebalance)
+        return parentToRebalance
 
     def __isBalanced(self, node):
         leftSize = 0
@@ -108,7 +110,9 @@ class BalancedBSTSet(BSTSet):
         if (added):
             node = self.findEntry(data)
             assert node != None, "Just added entry couldn't be found."
-            self.__updateParents(node, 1)
+            rebalanceNode = self.__updateParents(node, 1)
+            if rebalanceNode != None:
+                self.rebalance(rebalanceNode)
         return added
 
     ## Remove node with value data from the tree
@@ -122,8 +126,10 @@ class BalancedBSTSet(BSTSet):
             nodeToUpdateParents = self.successor(n)
 
         ## Update parents' subtree size before removing the node
-        self.__updateParents(nodeToUpdateParents, -1)
+        rebalanceNode = self.__updateParents(nodeToUpdateParents, -1)
         self.unlinkNode(n)
+        if rebalanceNode != None:
+            self.rebalance(rebalanceNode)
         return True
 
     def rebalance(self, node):
