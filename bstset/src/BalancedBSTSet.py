@@ -234,6 +234,28 @@ def set_union(itr1, itr2):
             next(p2)
     return result
 
+def set_difference(itr1, itr2):
+    p1 = peekable(itr1)
+    p2 = peekable(itr2)
+    result = type(itr1)()
+    while p1.hasNext() or p2.hasNext():
+        if not p1.hasNext():
+            break
+        if not p2.hasNext():
+            result.update(p1)
+            break
+        i1 = p1.peek()
+        i2 = p2.peek()
+        if i1 < i2:
+            result.append(i1)
+            next(p1)
+        elif i2 < i1:
+            next(p2)
+        else:
+            next(p1)
+            next(p2)
+    return result
+
 import unittest
 import random
 
@@ -443,6 +465,27 @@ class TestBalancedBSTSet(unittest.TestCase):
         c.update(dA)
         c.update(dB)
         self.assertEqual(c.toArray(), set_union(a, b).toArray())
+
+    def test_setDifference(self):
+        a = BalancedBSTSet()
+        a.update([x for x in range(15, 27)])
+        b = BalancedBSTSet()
+        b.update([x for x in range(21, 35)])
+        c = BalancedBSTSet()
+        c.update([x for x in range(15, 21)])
+        self.assertEqual(set_difference(a, b).toArray(), c.toArray())
+
+        a = BalancedBSTSet()
+        dA = [random.randint(1, 500) for _ in range(random.randrange(100, 200))]
+        a.update(dA)
+        b = BalancedBSTSet()
+        dB = [random.randint(1, 500) for _ in range(random.randrange(100, 200))]
+        b.update(dB)
+        c = BalancedBSTSet()
+        c.update(dA)
+        for x in b:
+            c.remove(x)
+        self.assertEqual(c.toArray(), set_difference(a, b).toArray())
 
 if __name__ == "__main__":
     unittest.main()
