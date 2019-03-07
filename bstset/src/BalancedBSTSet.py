@@ -75,6 +75,15 @@ class BalancedBSTSet(BSTSet):
      #
     def __init__(self, isSelfBalancing = False, top = 2, bottom = 3):
         BSTSet.__init__(self)
+        if not isinstance(isSelfBalancing, bool):
+            raise TypeError("Argument isSelfBalancing must be a boolean.")
+        if not isinstance(top, int):
+            raise TypeError("Argument top must be an integer.")
+        if not isinstance(bottom, int):
+            raise TypeError("Argument bottom must be an integer.")
+        if not (1/2 <= top/bottom < 1):
+            raise ValueError("Inappropriate top/bottom value. It should be " + \
+                    "a value in the [0.5, 1) range.")
         self.__alphaNumerator = top
         self.__alphaDenominator = bottom
         self.__autoBalance = isSelfBalancing
