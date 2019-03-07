@@ -212,5 +212,23 @@ class TestBalancedBSTSet(unittest.TestCase):
         with self.assertRaises(ValueError):
             BalancedBSTSet(False, 15, 3)
 
+    def test_root(self):
+        tree = BalancedBSTSet()
+        self.assertTrue(tree.isEmpty())
+        self.assertIsNone(tree.root())
+        self.assertEqual(len(tree), 0)
+
+        tree.add(5)
+        self.assertFalse(tree.isEmpty())
+        self.assertIsNotNone(tree.root())
+        self.assertEqual(len(tree), 1)
+
+        previousRoot = tree.root()
+        tree.add(12)
+        self.assertFalse(tree.isEmpty())
+        self.assertIsNotNone(tree.root())
+        self.assertEqual(tree.root(), previousRoot)
+        self.assertEqual(len(tree), 2)
+
 if __name__ == "__main__":
     unittest.main()
