@@ -185,6 +185,11 @@ class BalancedBSTSet(BSTSet):
 import unittest
 import random
 
+##
+ # @author Claudio Roberto França Pereira
+ # @since 06/03/2019
+ # @description Test class with tests for BalancedBSTSet
+ #
 class TestBalancedBSTSet(unittest.TestCase):
     def test_creation(self):
         self.assertIsNotNone(BalancedBSTSet())
