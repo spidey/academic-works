@@ -183,6 +183,7 @@ class BalancedBSTSet(BSTSet):
         return node
 
 import unittest
+import random
 
 class TestBalancedBSTSet(unittest.TestCase):
     def test_creation(self):
@@ -229,6 +230,23 @@ class TestBalancedBSTSet(unittest.TestCase):
         self.assertIsNotNone(tree.root())
         self.assertEqual(tree.root(), previousRoot)
         self.assertEqual(len(tree), 2)
+
+    def test_add(self):
+        tree = BalancedBSTSet()
+        added = []
+        elems = [random.randint(1, 500) for _ in range(random.randint(10, 30))]
+        for e in elems:
+            if tree.add(e):
+                added.append(e)
+        self.assertEqual(len(tree), len(added))
+        for e in added:
+            self.assertIsNotNone(tree.findEntry(e))
+        added.sort()
+        inOrder = [x.data for x in tree._BSTSet__inOrder(tree.root(), None)]
+        self.assertEqual(inOrder, added)
+        elems = list(set(elems))
+        elems.sort()
+        self.assertEqual(added, elems)
 
 if __name__ == "__main__":
     unittest.main()
