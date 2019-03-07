@@ -291,5 +291,28 @@ class TestBalancedBSTSet(unittest.TestCase):
         tree.add(1)
         self.assertEqual(tree.height(), 3)
 
+    def test_iterator(self):
+        tree = BalancedBSTSet()
+        elems = [random.randint(1, 500) for _ in range(random.randint(50, 100))]
+        for x in elems:
+            tree.add(x)
+        elems = list(set(elems))
+        elems.sort()
+        self.assertEqual(tree.toArray(), elems)
+
+        iterator = tree.iterator()
+        while next(iterator, None):
+            iterator.remove()
+        self.assertEqual(len(tree), 0)
+
+        for x in elems:
+            tree.add(x)
+        iterator = tree.iterator()
+        for x in iterator:
+            if random.choice((True, False)):
+                elems.remove(x)
+                iterator.remove()
+            self.assertEqual(len(tree), len(elems))
+
 if __name__ == "__main__":
     unittest.main()
