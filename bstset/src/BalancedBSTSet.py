@@ -291,6 +291,38 @@ class TestBalancedBSTSet(unittest.TestCase):
         tree.add(1)
         self.assertEqual(tree.height(), 3)
 
+    def test_rebalance(self):
+        tree = BalancedBSTSet(False)
+        tree.update([x for x in range(1, 10)])
+        self.assertEqual(tree.root().data, 1)
+        self.assertEqual(tree.height(), 8)
+        tree.rebalance(tree.root())
+        self.assertEqual(tree.root().data, 5)
+        self.assertEqual(tree.height(), 3)
+
+        tree = BalancedBSTSet(False)
+        tree.update([x for x in range(1, 10)])
+        node4 = tree.root().right.right.right
+        node5 = node4.right
+        self.assertEqual(node5.data, 5)
+        self.assertEqual(tree.getHeight(node5), 4)
+        tree.rebalance(node5)
+        self.assertEqual(node5.data, 5)
+        self.assertEqual(node4.right.data, 7)
+        self.assertEqual(tree.getHeight(node4.right), 2)
+
+        tree = BalancedBSTSet(True, 1, 2)
+        tree.add(1)
+        self.assertEqual(tree.height(), 0)
+        self.assertEqual(tree.root().data, 1)
+        tree.add(2)
+        self.assertEqual(tree.root().data, 1)
+        self.assertEqual(tree.height(), 1)
+        tree.add(3)
+        self.assertEqual(tree.root().data, 2)
+        self.assertEqual(tree.height(), 1)
+        tree.add(4)
+
     def test_iterator(self):
         tree = BalancedBSTSet()
         elems = [random.randint(1, 500) for _ in range(random.randint(50, 100))]
