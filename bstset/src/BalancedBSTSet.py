@@ -153,8 +153,7 @@ class BalancedBSTSet(BSTSet):
         return True
 
     def rebalance(self, node):
-        nodeArray = []
-        self._BSTSet__inOrder(node, nodeArray)
+        nodeArray = self._BSTSet__inOrder(node, None)
         parent = node.parent
 
         insertLeft = False
