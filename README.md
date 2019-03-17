@@ -21,3 +21,6 @@ Current projects
 
 - [**bstset**](https://github.com/spidey/academic-works/tree/master/bstset)  
     A Set implementation in Python using an α-balanced Binary Search Tree.
+
+- [**playlist**](https://github.com/spidey/academic-works/tree/master/playlist)  
+    A very simple Object Oriented Programming exercise in Java.
