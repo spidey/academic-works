@@ -14,3 +14,6 @@ Current projects
 
 - [**pedalarte**](http://spidey.github.io/academic-works/pedalarte-html-site/Pedalarte.html)  
 	Simple website built as a learning exercise of HTML, CSS and Javascript.
+
+- [**bstset**](https://github.com/spidey/academic-works/tree/master/bstset)  
+	A Set implementation in Python using an α-balanced Binary Search Tree.
